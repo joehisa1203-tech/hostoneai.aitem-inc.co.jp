@@ -9,7 +9,7 @@
   var sessionId = null, lastId = 0, timer = null, seen = {};
   try { sessionId = localStorage.getItem(KEY); } catch (e) {}
 
-  var css = '.ho-btn{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#0f766e;color:#fff;border:0;font-size:26px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:99998}' +
+  var css = '.ho-btn{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#0f766e;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:99998}' +
     '.ho-box{position:fixed;right:20px;bottom:92px;width:min(360px,calc(100vw - 32px));height:min(520px,calc(100vh - 120px));background:#fff;color:#14213d;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.25);display:none;flex-direction:column;overflow:hidden;z-index:99999;font-family:system-ui,"Hiragino Sans",sans-serif}' +
     '.ho-box.open{display:flex}.ho-head{background:#0f766e;color:#fff;padding:14px 16px;font-weight:700}.ho-head small{display:block;font-weight:400;opacity:.85}' +
     '.ho-log{flex:1;overflow:auto;padding:14px;background:#f5f7fa}.ho-m{max-width:82%;padding:9px 12px;border-radius:12px;margin:6px 0;white-space:pre-wrap;font-size:14px;line-height:1.6}' +
@@ -17,7 +17,7 @@
     '.ho-f{display:flex;border-top:1px solid #e3e7ee}.ho-f textarea{flex:1;border:0;padding:12px;font:inherit;resize:none;outline:none;height:52px}.ho-f button{border:0;background:#0f766e;color:#fff;padding:0 18px;font-weight:700;cursor:pointer}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
-  var btn = document.createElement('button'); btn.className = 'ho-btn'; btn.setAttribute('aria-label', 'チャットを開く'); btn.textContent = '💬';
+  var btn = document.createElement('button'); btn.className = 'ho-btn'; btn.setAttribute('aria-label', 'チャットを開く'); btn.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 8.5 8.5 0 0 1-3.8-.9L3.5 21l1.9-5a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.4-8.5h.6a8.5 8.5 0 0 1 8 8v.8z"/></svg>';
   var box = document.createElement('div'); box.className = 'ho-box';
   box.innerHTML = '<div class="ho-head">AIコンシェルジュ<small>24時間・多言語対応 / 24/7 multilingual</small></div><div class="ho-log"></div>' +
     '<form class="ho-f"><textarea placeholder="メッセージを入力 / Type a message" aria-label="メッセージ"></textarea><button type="submit">送信</button></form>';

@@ -51,6 +51,12 @@ section{padding:56px 0}h2{font-size:28px;margin:0 0 28px}
 .status{margin:0;min-height:1.6em;font-size:14px;font-weight:700}
 .status.ok{color:var(--accent2)}
 .note{color:var(--muted);font-size:14px;margin-top:20px}
+/* お問い合わせは中央揃え。入力欄のラベルだけは左に戻す（中央寄せだと読みにくい） */
+#contact{text-align:center;padding:88px 0 64px}
+#contact .lead{margin-left:auto;margin-right:auto}
+#contact .form{margin-left:auto;margin-right:auto;text-align:left}
+#contact .form button{justify-self:center}
+#contact .status{text-align:center}
 footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:13px}
 @media (max-width:760px){
   .navtoggle{display:block}
@@ -77,8 +83,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
 <div class="hero"><div class="wrap">
 <h1>民泊のゲスト対応を、<br>AIが24時間365日。</h1>
 <p>Beds24 と連携し、Airbnb・Booking.com などのOTAメッセージ、LINE、Slack、電話、Webチャットに届くゲストからの問い合わせへ AI が多言語で即時返信。判断が必要な内容だけをスタッフにエスカレーションします。</p>
-<a class="btn" href="#pricing">料金を見る</a><a class="btn ghost" href="#contact">導入相談</a>
-<div class="chips"><span class="chip">Beds24 API v2</span><span class="chip">Airbnb / Booking.com / Expedia（Beds24経由）</span><span class="chip">LINE</span><span class="chip">Slack</span><span class="chip">電話（AI音声）</span><span class="chip">Webチャット</span><span class="chip">日本語・英語・中国語・韓国語ほか</span></div>
+<a class="btn" href="#contact">導入を相談する</a><a class="btn ghost" href="#pricing">料金を見る</a>
+<div class="chips"><span class="chip">Airbnb・Booking.com（Beds24経由）</span><span class="chip">LINE</span><span class="chip">電話もAIが応対</span><span class="chip">日本語・英語・中国語・韓国語ほか</span></div>
 </div></div>
 
 <section id="features"><div class="wrap">
