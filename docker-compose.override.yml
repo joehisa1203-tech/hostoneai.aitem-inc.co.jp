@@ -1,0 +1,17 @@
+# このサーバー(210.131.216.216)専用の上書き設定。
+#
+# なぜ必要か: ホストの 80/443 は既存 nginx が使用中で、リポジトリ標準の
+# compose にある caddy サービスはポート衝突で起動できない。このホストの
+# 他アプリ(joeai-wordpress:8080 / sns-web:8100 / beds24-ai-reply:8200)と
+# 同じ流儀に合わせ、app を 127.0.0.1 のみに公開して既存 nginx から
+# リバースプロキシする。caddy を起動すると nginx が落ちて他サイトが
+# 全部止まるため、profiles で既定の起動対象から外している。
+name: hostoneai
+
+services:
+  app:
+    ports:
+      - "127.0.0.1:8300:3000"
+
+  caddy:
+    profiles: ["unused-on-this-host"]

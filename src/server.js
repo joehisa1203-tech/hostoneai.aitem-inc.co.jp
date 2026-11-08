@@ -5,6 +5,7 @@ import { config } from './config.js';
 import './db.js';
 import { router as adminRouter, basicAuth } from './routes/admin.js';
 import { router as chatRouter } from './routes/chat.js';
+import { router as contactRouter } from './routes/contact.js';
 import { router as voiceRouter } from './routes/voice.js';
 import { router as webhookRouter, onBeds24GuestMessage, setBeds24PollTrigger } from './routes/webhooks.js';
 import * as beds24 from './channels/beds24.js';
@@ -24,6 +25,7 @@ export function createApp() {
   app.use(webhookRouter);
   app.use(voiceRouter);
   app.use(chatRouter);
+  app.use(contactRouter);
   app.use(adminRouter);
   app.use('/admin', basicAuth, express.static(path.join(publicDir, 'admin')));
   app.use(express.static(publicDir, { extensions: ['html'] }));

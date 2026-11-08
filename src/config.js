@@ -12,6 +12,19 @@ export const config = {
     effort: env.AI_EFFORT || 'low',
     fallbacks: (env.AI_FALLBACKS || 'on') !== 'off',
   },
+  contact: {
+    to: env.CONTACT_TO || 'info@joeai.co.jp',
+    from: env.SMTP_FROM || env.SMTP_USER || '',
+    fromName: env.SMTP_FROM_NAME || 'HostOne AI',
+    smtp: {
+      host: env.SMTP_HOST || '',
+      port: Number(env.SMTP_PORT || 465),
+      // 465 は SSL/TLS で最初から暗号化、587 は STARTTLS
+      secure: (env.SMTP_SECURE || 'ssl').toLowerCase() !== 'tls',
+      user: env.SMTP_USER || '',
+      pass: env.SMTP_PASS || '',
+    },
+  },
   beds24: {
     refreshToken: env.BEDS24_REFRESH_TOKEN || '',
     pollSeconds: Number(env.BEDS24_POLL_SECONDS || 60),

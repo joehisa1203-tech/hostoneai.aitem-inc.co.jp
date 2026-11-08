@@ -12,8 +12,16 @@
 a{color:var(--accent2)}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 header{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-.logo{font-weight:800;font-size:20px;letter-spacing:.02em}.logo span{color:var(--accent2)}
+.logo{font-weight:800;font-size:20px;letter-spacing:.02em;color:var(--fg);text-decoration:none}.logo span{color:var(--accent2)}
 nav a{margin-left:20px;color:var(--fg);text-decoration:none;font-size:14px}
+/* 細い画面でメニューをまとめるボタン。幅44pxは指で押せる最小の大きさ */
+.navtoggle{display:none;width:44px;height:44px;margin-right:-10px;padding:10px;background:none;border:0;color:var(--fg);cursor:pointer}
+.navtoggle:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;border-radius:6px}
+.navtoggle span{display:block;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,opacity .2s}
+.navtoggle span+span{margin-top:5px}
+.navtoggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.navtoggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.navtoggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .hero{padding:88px 0 64px}.hero h1{font-size:clamp(28px,5vw,48px);line-height:1.3;margin:0 0 20px}
 .hero p{font-size:18px;color:var(--muted);max-width:680px}
 .btn{display:inline-block;background:var(--accent);color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;margin-top:16px}
@@ -28,18 +36,48 @@ section{padding:56px 0}h2{font-size:28px;margin:0 0 28px}
 .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
 .price .card{text-align:center;padding:36px 24px}.amount{font-size:44px;font-weight:800;margin:8px 0}.amount small{font-size:16px;font-weight:500;color:var(--muted)}
 .price ul{text-align:left;color:var(--muted);font-size:15px;padding-left:20px}
+.lead{color:var(--muted);margin:-14px 0 24px;max-width:680px}
+.form{display:grid;gap:18px;max-width:720px}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form label{display:grid;gap:6px;font-size:14px;font-weight:700}
+.form em{font-style:normal;font-size:12px;font-weight:500;color:var(--accent2)}
+.form input,.form textarea{width:100%;font:inherit;font-weight:400;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.form input:focus-visible,.form textarea:focus-visible{outline:2px solid var(--accent2);outline-offset:1px}
+.form textarea{min-height:140px;resize:vertical}
+.form button{justify-self:start;margin-top:0;border:0;font:inherit;font-weight:700;cursor:pointer}
+.form button[disabled]{opacity:.6;cursor:progress}
+/* bot 用の罠。利用者には見せないが、display:none だと bot に無視されるので画面外へ出す */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.status{margin:0;min-height:1.6em;font-size:14px;font-weight:700}
+.status.ok{color:var(--accent2)}
+.note{color:var(--muted);font-size:14px;margin-top:20px}
 footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:13px}
+@media (max-width:760px){
+  .navtoggle{display:block}
+  nav{position:absolute;top:60px;left:0;right:0;display:none;flex-direction:column;padding:4px 20px 12px;background:var(--card);border-bottom:1px solid var(--line)}
+  nav.open{display:flex}
+  nav a{margin:0;padding:14px 0;font-size:16px;border-top:1px solid var(--line)}
+  .hero{padding:56px 0 48px}
+  .form .row{grid-template-columns:1fr}
+  .form button{justify-self:stretch;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){.navtoggle span{transition:none}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><div class="logo">HostOne<span> AI</span></div>
-<nav><a href="#features">機能</a><a href="#flow">導入の流れ</a><a href="#pricing">料金</a><a href="/admin/">管理画面</a></nav></div></header>
+<header><div class="wrap">
+<a class="logo" href="/">HostOne<span> AI</span></a>
+<button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+<nav id="nav">
+<a href="#features">機能</a><a href="#flow">導入の流れ</a><a href="#pricing">料金</a><a href="#contact">お問い合わせ</a><a href="/admin/">管理画面</a>
+</nav>
+</div></header>
 
 <main>
 <div class="hero"><div class="wrap">
 <h1>民泊のゲスト対応を、<br>AIが24時間365日。</h1>
 <p>Beds24 と連携し、Airbnb・Booking.com などのOTAメッセージ、LINE、Slack、電話、Webチャットに届くゲストからの問い合わせへ AI が多言語で即時返信。判断が必要な内容だけをスタッフにエスカレーションします。</p>
-<a class="btn" href="#pricing">料金を見る</a><a class="btn ghost" href="mailto:info@aitem-inc.co.jp?subject=HostOne%20AI%20導入相談">導入相談</a>
+<a class="btn" href="#pricing">料金を見る</a><a class="btn ghost" href="#contact">導入相談</a>
 <div class="chips"><span class="chip">Beds24 API v2</span><span class="chip">Airbnb / Booking.com / Expedia（Beds24経由）</span><span class="chip">LINE</span><span class="chip">Slack</span><span class="chip">電話（AI音声）</span><span class="chip">Webチャット</span><span class="chip">日本語・英語・中国語・韓国語ほか</span></div>
 </div></div>
 
@@ -71,9 +109,69 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
 <div class="card"><div>ソフトウェア利用料</div><div class="amount">3,000<small> 円 / 月（税別）</small></div>
 <ul><li>AIゲスト対応ソフトウェアのご利用</li><li>アップデート・保守</li><li>管理画面・Slack通知</li><li>※AI API・電話回線(Twilio)・サーバー等の実費は別途</li></ul></div>
 </div></div></section>
+
+<section id="contact"><div class="wrap">
+<h2>お問い合わせ</h2>
+<p class="lead">導入のご相談・お見積り・デモのご依頼はこちらから。内容を確認のうえ、担当者よりご返信いたします。</p>
+<form class="card form" id="contactform" novalidate>
+<div class="row">
+<label><span>会社名 / 屋号</span><input name="company" autocomplete="organization"></label>
+<label><span>お名前 <em>必須</em></span><input name="name" required autocomplete="name"></label>
+</div>
+<div class="row">
+<label><span>メールアドレス <em>必須</em></span><input name="email" type="email" required autocomplete="email" inputmode="email"></label>
+<label><span>電話番号</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label>
+</div>
+<label><span>ご相談内容 <em>必須</em></span><textarea name="message" rows="6" required placeholder="物件数、ご利用中のOTA・チャネル、お困りのことなどをお書きください。"></textarea></label>
+<label class="hp" aria-hidden="true">サイトURL<input name="website" tabindex="-1" autocomplete="off"></label>
+<button class="btn" type="submit">送信する</button>
+<p class="status" id="formstatus" role="status" aria-live="polite"></p>
+</form>
+<p class="note">メールで直接ご連絡いただく場合は <a href="mailto:info@joeai.co.jp?subject=HostOne%20AI%20導入相談">info@joeai.co.jp</a> までお願いします。</p>
+</div></section>
 </main>
 
-<footer><div class="wrap">© HostOne AI — aitem-inc.co.jp</div></footer>
+<footer><div class="wrap">© HostOne AI — aitem-inc.co.jp　|　お問い合わせ: <a href="mailto:info@joeai.co.jp">info@joeai.co.jp</a></div></footer>
+
+<script>
+// ハンバーガーメニュー
+(function () {
+  var t = document.getElementById('navtoggle'), n = document.getElementById('nav');
+  function close() { n.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); t.setAttribute('aria-label', 'メニューを開く'); }
+  t.addEventListener('click', function () {
+    var open = n.classList.toggle('open');
+    t.setAttribute('aria-expanded', String(open));
+    t.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  });
+  n.addEventListener('click', function (e) { if (e.target.tagName === 'A') close(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && n.classList.contains('open')) { close(); t.focus(); }
+  });
+})();
+
+// お問い合わせフォーム
+(function () {
+  var f = document.getElementById('contactform'), s = document.getElementById('formstatus');
+  var btn = f.querySelector('button[type=submit]');
+  function say(msg, ok) { s.textContent = msg; s.className = 'status' + (ok ? ' ok' : ''); }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = {};
+    new FormData(f).forEach(function (v, k) { data[k] = v; });
+    if (!data.name || !data.email || !data.message) { say('⚠ お名前・メールアドレス・ご相談内容をご入力ください。', false); return; }
+    btn.disabled = true; say('送信しています…', false);
+    fetch('/api/contact', {
+      method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data)
+    }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.j.ok) { f.reset(); say('✓ 送信しました。ご連絡ありがとうございます。', true); }
+        else { say('⚠ ' + (res.j.error || '送信に失敗しました。'), false); }
+      })
+      .catch(function () { say('⚠ 通信に失敗しました。時間をおいてお試しください。', false); })
+      .finally(function () { btn.disabled = false; });
+  });
+})();
+</script>
 <script src="/widget.js" defer></script>
 </body>
 </html>

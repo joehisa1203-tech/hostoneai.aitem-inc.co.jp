@@ -105,6 +105,7 @@ bash /opt/hostoneai/deploy/update.sh
 | **Slack** | Slack App を作成、Bot Token Scopes: `chat:write`, `channels:history`, `groups:history`。Event Subscriptions の Request URL に `https://hostoneai.aitem-inc.co.jp/webhooks/slack/events`、`message.channels` を購読。通知チャンネルIDを `SLACK_NOTIFY_CHANNEL` に設定し Bot を招待 |
 | **電話 (Twilio)** | 日本の電話番号を取得し、Voice Webhook に `https://hostoneai.aitem-inc.co.jp/voice/incoming?property=物件ID`（POST）。`TWILIO_AUTH_TOKEN`、転送先 `HOST_PHONE_NUMBER` を設定 |
 | **Webチャット** | 物件サイトに `<script src="https://hostoneai.aitem-inc.co.jp/widget.js" data-property="物件ID" defer></script>` を貼り付け |
+| **お問い合わせメール** | LP のフォーム（`POST /api/contact`）の送信先。`CONTACT_TO` と `SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` / `SMTP_USER` / `SMTP_PASS` / `SMTP_FROM` を設定。差出人は `SMTP_USER` に固定し、問い合わせ者のアドレスは Reply-To に入る |
 
 ## セキュリティ
 
