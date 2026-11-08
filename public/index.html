@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HostOne AI | 民泊専門 AIゲスト対応</title>
+<meta name="description" content="Beds24と連携し、Airbnb・Booking.com・LINE・Slack・電話・Webチャットのゲスト対応をAIが24時間365日自動化。初期構築費70万円、ソフト利用料 月額3,000円。">
+<style>
+:root{--bg:#f7f8fb;--fg:#14213d;--muted:#5b6478;--card:#fff;--line:#e4e7ef;--accent:#0f766e;--accent2:#14b8a6}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1321;--fg:#e8ecf4;--muted:#9aa3b5;--card:#151d2e;--line:#253049}}
+*{box-sizing:border-box}body{margin:0;font-family:"Hiragino Sans","Noto Sans JP",system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.75}
+a{color:var(--accent2)}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:800;font-size:20px;letter-spacing:.02em}.logo span{color:var(--accent2)}
+nav a{margin-left:20px;color:var(--fg);text-decoration:none;font-size:14px}
+.hero{padding:88px 0 64px}.hero h1{font-size:clamp(28px,5vw,48px);line-height:1.3;margin:0 0 20px}
+.hero p{font-size:18px;color:var(--muted);max-width:680px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;margin-top:16px}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line);margin-left:8px}
+section{padding:56px 0}h2{font-size:28px;margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px}
+.flow{counter-reset:s;display:grid;gap:14px}.flow div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px 16px 56px;position:relative}
+.flow div::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700}
+.price{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.price .card{text-align:center;padding:36px 24px}.amount{font-size:44px;font-weight:800;margin:8px 0}.amount small{font-size:16px;font-weight:500;color:var(--muted)}
+.price ul{text-align:left;color:var(--muted);font-size:15px;padding-left:20px}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="logo">HostOne<span> AI</span></div>
+<nav><a href="#features">機能</a><a href="#flow">導入の流れ</a><a href="#pricing">料金</a><a href="/admin/">管理画面</a></nav></div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+<h1>民泊のゲスト対応を、<br>AIが24時間365日。</h1>
+<p>Beds24 と連携し、Airbnb・Booking.com などのOTAメッセージ、LINE、Slack、電話、Webチャットに届くゲストからの問い合わせへ AI が多言語で即時返信。判断が必要な内容だけをスタッフにエスカレーションします。</p>
+<a class="btn" href="#pricing">料金を見る</a><a class="btn ghost" href="mailto:info@aitem-inc.co.jp?subject=HostOne%20AI%20導入相談">導入相談</a>
+<div class="chips"><span class="chip">Beds24 API v2</span><span class="chip">Airbnb / Booking.com / Expedia（Beds24経由）</span><span class="chip">LINE</span><span class="chip">Slack</span><span class="chip">電話（AI音声）</span><span class="chip">Webチャット</span><span class="chip">日本語・英語・中国語・韓国語ほか</span></div>
+</div></div>
+
+<section id="features"><div class="wrap">
+<h2>主な機能</h2>
+<div class="grid">
+<div class="card"><h3>Beds24 一元連携</h3><p>Beds24 のメッセージを自動取得し、予約情報（ゲスト名・宿泊日・人数）を踏まえて AI が返信。各OTAへ Beds24 経由で送信します。</p></div>
+<div class="card"><h3>LINE・Slack・Webチャット</h3><p>LINE公式アカウント、Slack、ホームページ埋め込みチャットからの問い合わせにも同じAIが対応。会話は管理画面に集約されます。</p></div>
+<div class="card"><h3>電話もAIが応対</h3><p>音声認識と読み上げで電話にもAIが応答。解決できない場合はスタッフの携帯へ自動転送します。</p></div>
+<div class="card"><h3>物件ごとのナレッジ</h3><p>チェックイン方法、Wi-Fi、ハウスルール、FAQ を物件ごとに登録。書かれていないことは推測せず、担当者確認に回します。</p></div>
+<div class="card"><h3>安全なエスカレーション</h3><p>返金・キャンセル・トラブル・緊急事態や確信度の低い回答は下書き保存し Slack に通知。スレッド返信や管理画面からワンクリック承認。</p></div>
+<div class="card"><h3>自動 / 承認モード</h3><p>導入直後は全件承認モード、慣れたら自動送信モードへ。確信度のしきい値も調整できます。</p></div>
+</div></div></section>
+
+<section id="flow"><div class="wrap">
+<h2>導入の流れ</h2>
+<div class="flow">
+<div><b>ヒアリング</b>：物件数、利用中のOTA・チャネル、運営体制を確認します。</div>
+<div><b>構築</b>：専用サーバーへのセットアップ、Beds24・LINE・Slack・電話番号の連携、物件ナレッジの登録を代行します。</div>
+<div><b>テスト運用</b>：承認モードでAIの下書き品質を確認し、回答内容をチューニングします。</div>
+<div><b>本番運用</b>：自動返信を開始。運用中の改善もサポートします。</div>
+</div></div></section>
+
+<section id="pricing"><div class="wrap">
+<h2>料金</h2>
+<div class="price">
+<div class="card"><div>初期構築費</div><div class="amount">700,000<small> 円（税別）</small></div>
+<ul><li>専用サーバー環境の構築・ドメイン設定</li><li>Beds24 / LINE / Slack / 電話 / Webチャット連携</li><li>物件ナレッジ登録・AI応答チューニング</li><li>管理画面の操作説明・テスト運用サポート</li></ul></div>
+<div class="card"><div>ソフトウェア利用料</div><div class="amount">3,000<small> 円 / 月（税別）</small></div>
+<ul><li>AIゲスト対応ソフトウェアのご利用</li><li>アップデート・保守</li><li>管理画面・Slack通知</li><li>※AI API・電話回線(Twilio)・サーバー等の実費は別途</li></ul></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">© HostOne AI — aitem-inc.co.jp</div></footer>
+<script src="/widget.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HostOne AI 管理画面</title>
+<style>
+:root{--bg:#f4f6fa;--fg:#14213d;--muted:#5b6478;--card:#fff;--line:#e2e6ee;--accent:#0f766e;--warn:#b45309;--warnbg:#fef3c7;--err:#b91c1c}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1321;--fg:#e8ecf4;--muted:#9aa3b5;--card:#151d2e;--line:#253049;--warnbg:#3b2f12}}
+*{box-sizing:border-box}body{margin:0;font-family:"Hiragino Sans","Noto Sans JP",system-ui,sans-serif;background:var(--bg);color:var(--fg);font-size:14px}
+header{display:flex;align-items:center;gap:18px;padding:0 20px;height:54px;background:var(--card);border-bottom:1px solid var(--line);flex-wrap:wrap}
+header b{font-size:17px}header a{color:var(--muted);text-decoration:none;padding:6px 2px}header a.on{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+main{padding:20px;max-width:1280px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}.stat .n{font-size:28px;font-weight:800}.stat .l{color:var(--muted)}
+.split{display:grid;grid-template-columns:340px 1fr;gap:16px}@media (max-width:860px){.split{grid-template-columns:1fr}}
+.list a{display:block;padding:10px 12px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}.list a.on{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.badge{display:inline-block;font-size:11px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);margin-right:4px;color:var(--muted)}.badge.warn{background:var(--warnbg);color:var(--warn);border-color:transparent}
+.muted{color:var(--muted)}.msgs{max-height:60vh;overflow:auto;padding:4px}
+.m{max-width:78%;padding:10px 12px;border-radius:12px;margin:8px 0;white-space:pre-wrap;line-height:1.6;border:1px solid var(--line)}
+.m.in{background:var(--card)}.m.out{margin-left:auto;background:color-mix(in srgb,var(--accent) 14%,var(--card))}.m.draft{border:2px dashed var(--warn);background:var(--warnbg)}.m.failed{border-color:var(--err)}
+.m .meta{font-size:11px;color:var(--muted);margin-top:6px}
+textarea,input,select{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
+textarea{min-height:80px}label{display:block;margin:10px 0 4px;font-weight:600}
+button{font:inherit;border:0;border-radius:8px;padding:8px 14px;background:var(--accent);color:#fff;cursor:pointer;font-weight:600}button.sub{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}@media (max-width:700px){.grid2{grid-template-columns:1fr}}
+code{background:var(--bg);padding:2px 6px;border-radius:6px;word-break:break-all}table{width:100%;border-collapse:collapse}td,th{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.ok{color:var(--accent);font-weight:700}.ng{color:var(--err);font-weight:700}
+</style>
+</head>
+<body>
+<header><b>HostOne AI</b>
+<a href="#/" data-nav="">ダッシュボード</a><a href="#/inbox" data-nav="inbox">受信箱</a><a href="#/properties" data-nav="properties">物件</a><a href="#/settings" data-nav="settings">設定</a><a href="#/test" data-nav="test">AIテスト</a></header>
+<main id="app"></main>
+<script src="app.js"></script>
+</body>
+</html>

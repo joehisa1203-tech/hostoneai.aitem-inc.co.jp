@@ -1,0 +1,19 @@
+{
+  "name": "hostone-ai",
+  "version": "1.0.0",
+  "description": "HostOne AI - 民泊専門 AIゲスト対応プラットフォーム (Beds24 / LINE / Slack / 電話 / Webチャット)",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.6.0",
+    "better-sqlite3": "^11.7.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
